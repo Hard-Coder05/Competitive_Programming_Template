@@ -5,7 +5,6 @@
 #include <vector>
 #include <algorithm>
 #include <utility>
-#include <iterator>
 #include <string>
 #include <bits/stdc++.h>
 #define endl "\n"
@@ -25,6 +24,7 @@ ull PowMod(ull n)
 	}
 	return ret;
 }
+
 int main() {
 	FIO;
 #ifndef ONLINE_JUDGE
@@ -36,26 +36,23 @@ int main() {
 	while (tc--) {
 		ll n;
 		cin >> n;
-		vector<int> v;
-		for (int i = 0; i < n; i++) {
-			ll x;
-			cin >> x;
-			v.push_back(x);
-		}
-		sort(v.begin(), v.end());
-		ll comp = v[n - 1];
-		ll ans = 0;
-		for (int i = n - 2; i >= 0; i--) {
-			if (v[i] == 0)
-				break;
-			if (v[i] != comp) {
-				ans++;
-				ll comp = v[i];
+		ll arr[n][n];
+		for (ll i = 0; i < n; i++) {
+			for (ll j = 0; j < n; j++) {
+				cin >> arr[i][j];
 			}
 		}
-		if (v[0] == 0)
-			cout << ans << endl;
-		else
-			cout << ++ans << endl;
+		ll ans = 0;
+		for (ll i = n - 1; i > 0; i--) {
+			if (arr[0][i] != i + 1 && ans % 2 == 0)
+				ans++;
+			else if (arr[0][i] == i + 1 && ans % 2 == 0)
+				continue;
+			else if (arr[0][i] == i + 1 && ans % 2 == 1)
+				ans++;
+			else if (arr[0][i] != i + 1 && ans % 2 == 1)
+				continue;
+		}
+		cout << ans << endl;
 	}
 }

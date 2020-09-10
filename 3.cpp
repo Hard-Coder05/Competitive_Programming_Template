@@ -36,26 +36,5 @@ int main() {
 	while (tc--) {
 		ll n;
 		cin >> n;
-		vector<int> v;
-		for (int i = 0; i < n; i++) {
-			ll x;
-			cin >> x;
-			v.push_back(x);
-		}
-		sort(v.begin(), v.end());
-		ll comp = v[n - 1];
-		ll ans = 0;
-		for (int i = n - 2; i >= 0; i--) {
-			if (v[i] == 0)
-				break;
-			if (v[i] != comp) {
-				ans++;
-				ll comp = v[i];
-			}
-		}
-		if (v[0] == 0)
-			cout << ans << endl;
-		else
-			cout << ++ans << endl;
 	}
 }
