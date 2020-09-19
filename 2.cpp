@@ -5,6 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include <utility>
+#include <iterator>
 #include <string>
 #include <bits/stdc++.h>
 #define endl "\n"
@@ -24,35 +25,39 @@ ull PowMod(ull n)
 	}
 	return ret;
 }
-
 int main() {
 	FIO;
 #ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	ll tc;
-	cin >> tc;
-	while (tc--) {
-		ll n;
-		cin >> n;
-		ll arr[n][n];
-		for (ll i = 0; i < n; i++) {
-			for (ll j = 0; j < n; j++) {
-				cin >> arr[i][j];
-			}
-		}
-		ll ans = 0;
-		for (ll i = n - 1; i > 0; i--) {
-			if (arr[0][i] != i + 1 && ans % 2 == 0)
-				ans++;
-			else if (arr[0][i] == i + 1 && ans % 2 == 0)
-				continue;
-			else if (arr[0][i] == i + 1 && ans % 2 == 1)
-				ans++;
-			else if (arr[0][i] != i + 1 && ans % 2 == 1)
-				continue;
-		}
-		cout << ans << endl;
+	ll n;
+	cin >> n;
+	vector<ll> v;
+	for (int i = 0; i < n; i++) {
+		ll x;
+		cin >> x;
+		v.push_back(x);
 	}
+	sort(v.begin(), v.end());
+	vector<ll> ans;
+	if (n & 1 == 0) {
+		for (int i = 0; i < n / 2; i++) {
+			ans.push_back(v[n - (i + 1)]);
+			ans.push_back(v[i]);
+		}
+	}
+	else {
+		for (int i = 0; i < n / 2; i++) {
+			ans.push_back(v[n - (i + 1)]);
+			ans.push_back(v[i]);
+		}
+		ans.push_back(v[n / 2 ]);
+	}
+	cout << n / 2 << endl;
+	for (int i = 0; i < n; i++) {
+		cout << ans[i] << " ";
+	}
+	cout << endl;
 }
+

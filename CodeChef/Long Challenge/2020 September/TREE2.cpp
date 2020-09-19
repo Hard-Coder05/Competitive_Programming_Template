@@ -14,16 +14,18 @@
 #define FIO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 using namespace std;
 typedef long long int ll;
-ull PowMod(ull n)
+int countDistinct(int arr[], int n)
 {
-	ull ret = 1;
-	ull a = 2;
-	while (n > 0) {
-		if (n & 1) ret = ret * a % MOD;
-		a = a * a % MOD;
-		n >>= 1;
+	int res = 1;
+	for (int i = 1; i < n; i++) {
+		int j = 0;
+		for (j = 0; j < i; j++)
+			if (arr[i] == arr[j])
+				break;
+		if (i == j)
+			res++;
 	}
-	return ret;
+	return res;
 }
 int main() {
 	FIO;
@@ -36,26 +38,15 @@ int main() {
 	while (tc--) {
 		ll n;
 		cin >> n;
-		vector<int> v;
+		int arr[n];
 		for (int i = 0; i < n; i++) {
-			ll x;
-			cin >> x;
-			v.push_back(x);
+			cin >> arr[i];
 		}
-		sort(v.begin(), v.end());
-		ll comp = v[n - 1];
-		ll ans = 0;
-		for (int i = n - 2; i >= 0; i--) {
-			if (v[i] == 0)
-				break;
-			if (v[i] != comp) {
-				ans++;
-				ll comp = v[i];
-			}
-		}
+		sort(arr, arr + n);
+		ll ans = countDistinct(arr[], n);
 		if (v[0] == 0)
-			cout << ans << endl;
+			cout << ans - 1 << endl;
 		else
-			cout << ++ans << endl;
+			cout << ans << endl;
 	}
 }

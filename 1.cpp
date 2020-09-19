@@ -35,27 +35,40 @@ int main() {
 	cin >> tc;
 	while (tc--) {
 		ll n;
-		cin >> n;
-		vector<int> v;
-		for (int i = 0; i < n; i++) {
-			ll x;
-			cin >> x;
-			v.push_back(x);
-		}
-		sort(v.begin(), v.end());
-		ll comp = v[n - 1];
-		ll ans = 0;
-		for (int i = n - 2; i >= 0; i--) {
-			if (v[i] == 0)
-				break;
-			if (v[i] != comp) {
-				ans++;
-				ll comp = v[i];
+		ll s;
+		cin >> n >> s;
+		if (n == 1 && s % 2 == 0)
+			cout << 1 << endl;
+		else if (n == 1)
+			cout << 0 << endl;
+		else if (n & 1) {
+			set<int> odd;
+			set<int> eve;
+			while (s > 0) {
+				eve.insert(s % 10);
+				s = s / 10;
+				if (s > 0)
+					odd.insert(s % 100);
+				s = s / 10;
 			}
+			if (*odd.begin() % 2 == 0 && *eve.begin() % 2 == 0)
+				cout << 2 << endl;
+			else
+				cout << 1 << endl;
 		}
-		if (v[0] == 0)
-			cout << ans << endl;
-		else
-			cout << ++ans << endl;
+		else {
+			set<int> odd;
+			set<int> eve;
+			while (s > 0) {
+				eve.insert(s % 10);
+				s = s / 10;
+				odd.insert(s % 100);
+				s = s / 10;
+			}
+			if (*odd.begin() % 2 == 0 && *eve.begin() % 2 == 0)
+				cout << 2 << endl;
+			else
+				cout << 1 << endl;
+		}
 	}
 }
