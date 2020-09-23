@@ -1,3 +1,10 @@
+/*
+Problem Link: https://codeforces.com/contest/202/problem/B
+#############################################
+Author: Siddharth Mishra
+GitHub: https://github.com/Hard-Coder05
+#############################################
+*/
 #include <iostream>
 #include <cstdlib>
 #include <math.h>
@@ -14,17 +21,6 @@
 #define FIO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 using namespace std;
 typedef long long int ll;
-ull PowMod(ull n)
-{
-	ull ret = 1;
-	ull a = 2;
-	while (n > 0) {
-		if (n & 1) ret = ret * a % MOD;
-		a = a * a % MOD;
-		n >>= 1;
-	}
-	return ret;
-}
 int main() {
 	FIO;
 #ifndef ONLINE_JUDGE

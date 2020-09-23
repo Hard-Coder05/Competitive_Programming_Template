@@ -30,7 +30,30 @@ int main() {
 	ll tc;
 	cin >> tc;
 	while (tc--) {
-		ll n;
-		cin >> n;
+		ll x;
+		cin >> x;
+		if (x == 1) {
+			cout << 1 << endl;
+			return 0;
+		}
+		if (x == 3) {
+			cout << 5 << endl;
+			return 0;
+		}
+		int i = 0;
+		for (; i <= 100; i++) {
+			if (i & 1) {
+				if (x <= i + (((i - 2) / 2) + 1) * (((i - 2) / 2) + 1) * 2) {
+					cout << i << endl;
+					break;
+				}
+			}
+			else {
+				if (x <= i + (i - 2) * (i - 2) / 2) {
+					cout << i << endl;
+					break;
+				}
+			}
+		}
 	}
 }
