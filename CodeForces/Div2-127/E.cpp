@@ -1,5 +1,5 @@
 /*
-Problem Link: https://codeforces.com/contest/202/problem/C
+Problem Link:
 #############################################
 Author: Siddharth Mishra
 GitHub: https://github.com/Hard-Coder05
@@ -27,24 +27,10 @@ int main() {
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	ll x;
-	cin >> x;
-	if (x == 1) {
-		cout << 1 << endl;
-		return 0;
-	}
-	if (x == 2) {
-		cout << 3 << endl;
-		return 0;
-	}
-	if (x == 3) {
-		cout << 5 << endl;
-		return 0;
-	}
-	for (int i = 1; i <= 100; i += 2) {
-		if (x <= i + (((i - 2) / 2) + 1) * (((i - 2) / 2) + 1) * 2) {
-			cout << i << endl;
-			break;
-		}
+	ll tc;
+	cin >> tc;
+	while (tc--) {
+		ll n;
+		cin >> n;
 	}
 }
