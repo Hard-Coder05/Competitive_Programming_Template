@@ -1,5 +1,5 @@
 /*
-Problem Link: https://codeforces.com/contest/202/problem/B
+Problem Link: https://codeforces.com/problemset/problem/579/A
 #############################################
 Author: Siddharth Mishra
 GitHub: https://github.com/Hard-Coder05
@@ -27,10 +27,16 @@ int main() {
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	ll tc;
-	cin >> tc;
-	while (tc--) {
-		ll n;
-		cin >> n;
+	ll n;
+	cin >> n;
+	ll res = 0;
+	while (n > 0) {
+		if (n & 1) {
+			n -= 1;
+			res++;
+
+		}
+		n = n >> 1;
 	}
+	cout << res << endl;
 }
