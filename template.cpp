@@ -1,5 +1,5 @@
 /*
-Problem Link:
+Problem Link: 
 #############################################
 Author: Siddharth Mishra
 GitHub: https://github.com/Hard-Coder05
@@ -32,5 +32,6 @@ int main() {
 	while (tc--) {
 		ll n;
 		cin >> n;
+		cout<<n;
 	}
 }
