@@ -32,9 +32,6 @@ int main() {
 		cin>>x;
 		sum+=x;
 		}
-		if((sum/k)<=d)
-		cout<<sum/k<<endl;
-		else
-		cout<<d<<endl;		
+		cout<<min((sum/k),d)<<endl;	
 	}
 }
