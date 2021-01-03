@@ -1,5 +1,5 @@
 /*
-Problem Link: 
+Problem Link: https://www.codechef.com/JAN21B/problems/FAIRELCT
 #############################################
 Author: Siddharth Mishra
 GitHub: https://github.com/Hard-Coder05
@@ -27,17 +27,38 @@ int main() {
 		ll n,m;
 		cin >> n>>m;
         int a[n],b[m];
-        int suma=0,sumb=0;
+        int suma=0,sumb=0;  
 		for(int i=0;i<n;i++){
             ll x;
             cin>>x;
-        a[i]=x;
-        suma+=x;}
+            a[i]=x;
+            suma+=x;
+        }
         for(int i=0;i<m;i++){
-        ll x;
+            ll x;
             cin>>x;
-        b[i]=x;
-        sumb+=x;}
-int diff = suma-sumb;
+            b[i]=x;
+            sumb+=x;
+        }
+        int diff = suma-sumb;
+        sort(a,a+n);
+        sort(b,b+m,greater<int>());
+        int mi=0,ni=0,ans=0;
+        while(diff<=0&&(mi<m&&ni<n)){
+            if(a[ni]<b[mi]){
+                diff+=2*(b[mi]-a[ni]);
+                ans++;
+                mi++;
+                ni++;
+            }
+            else
+            {
+                break;
+            }
+        }
+        if(diff<=0)
+            cout<<-1<<endl;
+        else
+            cout<<ans<<endl;
 	}
 }

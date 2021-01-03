@@ -1,5 +1,5 @@
 /*
-Problem Link: 
+Problem Link: https://www.codechef.com/JAN21B/problems/DIVTHREE
 #############################################
 Author: Siddharth Mishra
 GitHub: https://github.com/Hard-Coder05
