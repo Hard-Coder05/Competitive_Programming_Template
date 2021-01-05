@@ -20,11 +20,17 @@ int main() {
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	ll tc;
-	cin >> tc;
-	while (tc--) {
 		ll n;
 		cin >> n;
-		cout<<n;
+        ll arr[n];
+        for(ll i=0;i<n;i++){
+            ll x;
+            cin>>x;
+            arr[x-1]=i+1;
+        }
+        for(auto i:arr){
+            cout<<i<<" ";
+        }
+        cout<<endl;
 	}
-}
+

@@ -1,4 +1,1 @@
-BOB
-TIE
-ALICE
-ALICE
+3

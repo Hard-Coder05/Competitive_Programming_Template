@@ -20,11 +20,21 @@ int main() {
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	ll tc;
-	cin >> tc;
-	while (tc--) {
-		ll n;
-		cin >> n;
-		cout<<n;
-	}
+string s;
+cin>>s;
+string a="hello";
+ll b=0;
+for(int i=0;i<s.size();i++){
+if(s[i]==a[b]){
+b++;}
+if(b==5)
+break;
+}
+if(b==5)
+cout<<"YES"<<endl;
+else
+{
+    cout<<"NO"<<endl;
+}
+
 }

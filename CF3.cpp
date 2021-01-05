@@ -20,11 +20,25 @@ int main() {
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	ll tc;
-	cin >> tc;
-	while (tc--) {
 		ll n;
-		cin >> n;
-		cout<<n;
+        cin>>n;
+        ll sum=0,arr[n];
+        for(int i=0;i<n;i++){
+            ll x;
+            cin>>x;
+            sum+=x;
+            arr[i]=x;
+        }
+        int i=0;
+        sort(arr,arr+n,greater<int>());
+        ll have=0;
+        ll ans=0;
+        while(have<=sum&&i<n){
+            have+=arr[i];
+            sum-=arr[i];
+            ans++;
+            i++;
+        }
+        cout<<ans<<endl;
 	}
-}
+
