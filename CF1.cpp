@@ -9,7 +9,6 @@ GitHub: https://github.com/Hard-Coder05
 #define endl "\n"
 #define max(a, b) (a < b ? b : a) 
 #define min(a, b) ((a > b) ? b : a) 
-#define ull unsigned long long
 #define MOD 1000000007
 #define INF 1000000000000000003
 #define FIO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
@@ -24,7 +23,8 @@ int main() {
 	ll tc;
 	cin >> tc;
 	while (tc--) {
-		
-        
+		ll n;
+		cin >> n;
+		cout<<n;
 	}
 }
