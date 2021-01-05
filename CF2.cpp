@@ -56,16 +56,5 @@ int main() {
 	while (tc--) {
 		ll n;
 		cin >> n;
-        ll arr[n];
-        for(int i=0;i<n;i++)
-		cin>>arr[i];
-        if(findMin(arr,n)==0)
-        cout<<"YES"<<endl;
-        else
-        {
-            cout<<"NO"<<endl;
-        }
-        
-
 	}
 }

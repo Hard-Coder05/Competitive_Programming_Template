@@ -21,26 +21,6 @@ int main() {
 	while (tc--) {
 		ll n;
 		cin >> n;
-		ll arr[n];
-        for(ll i=0;i<n;i++)
-        cin>>arr[i];
-        ll max=0;
-        for(ll i=0;i<n;i++){
-            if(arr[i]==0)
-            continue;
-            ll curri=i;
-            ll currmax=0;
-            while(curri<n){
-            if(arr[curri]==0)
-            continue;
-            ll now=arr[curri];
-            arr[curri]=0;
-            currmax+=now;
-            curri+=now;
-            }
-            if(max<currmax)
-            max=currmax;
-        }
-        cout<<max<<endl;
+		
 	}
 }

@@ -25,29 +25,6 @@ int main() {
 	cin >> tc;
 	while (tc--) {
 		ll n;
-		cin >> n;
-        vector<int> num;
-        for(int i=0;i<n;i++){
-            ll x;
-            cin>>x;
-            num.push_back(x);            
-        }
-        sort(num.begin(),num.end(),greater<int>());
-        int sumeve=0,sumodd=0;
-        int size=num.size();
-        for(int i=0;i<size;i++){
-            if(!(num[i]&1))
-            sumeve+=num[i];
-            i++;
-            if(i<size&&num[i]&1)
-            sumodd+=num[i];
-        }
-        if(sumeve>sumodd)
-        cout<<"ALICE"<<endl;
-        else if(sumeve==sumodd)
-        cout<<"TIE"<<endl;
-        else
-            cout<<"BOB"<<endl;
-        
+		cin >> n;        
 	}
 }
