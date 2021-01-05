@@ -7,27 +7,19 @@ GitHub: https://github.com/Hard-Coder05
 */
 #include <bits/stdc++.h>
 #define endl "\n"
-#define max(a, b) (a < b ? b : a) 
-#define min(a, b) ((a > b) ? b : a) 
-#define ull unsigned long long
-#define MOD 1000000007
-#define INF 1000000000000000003
 #define FIO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 using namespace std;
 typedef long long int ll;
 ll count(vector<ll> s)
-{
-    ll N, i, cnt = 0, ans = 0;
+{   ll N, i, neg = 0, pos = 0;
     N = s.size();
- 
     for (i = 0; i < N; i++) {
         if (s[i] <0)
-            cnt++;
+            neg++;
         if (s[i] >0)
-            ans += cnt;
+            pos++;
     }
- 
-    return ans;
+    return neg*pos;
 }
 int main() {
 	FIO;
@@ -54,5 +46,12 @@ int main() {
         }
         if(n==1)
         cout << count(v[0]) << endl;
-	}
+        else{
+            ll ans=0;
+            for(ll i=0;i<n;i++){
+                ans+=count(v[i]);
+                
+            }
+        }
+	}  
 }
