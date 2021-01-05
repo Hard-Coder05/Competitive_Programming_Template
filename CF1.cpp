@@ -23,15 +23,8 @@ int main() {
 	ll tc;
 	cin >> tc;
 	while (tc--) {
-		string s;
-		cin >> s;
-		ll size=s.length();
-        if(size>10)
-        cout<<s[0]<<size-2<<s[size-1]<<endl;
-        else
-        {
-            cout<<s<<endl;
-        }
-        
+		ll n;
+		cin >> n;
+		cout<<n;
 	}
 }

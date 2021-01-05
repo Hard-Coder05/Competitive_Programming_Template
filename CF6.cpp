@@ -20,15 +20,11 @@ int main() {
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-		ll arr[5][5];
-        ll ai=0,aj=0;
-		for(int i=0;i<5;i++){
-            for(int j=0;j<5;j++){
-            cin>>arr[i][j];
-            if(arr[i][j]==1){
-                ai=i;
-                aj=j;
-            }}
-        }
-        cout<<abs(2-ai)+abs(2-aj)<<endl;
+	ll tc;
+	cin >> tc;
+	while (tc--) {
+		ll n;
+		cin >> n;
+		cout<<n;
 	}
+}
