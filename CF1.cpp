@@ -38,7 +38,14 @@ int main() {
 				min=x;
 				mini=i;
 			}
-		}
-		
+		} 
+		ll ans=0;
+			
+			ans+=maxi;
+			ans+=n-1-mini;
+			if(maxi>mini){
+				ans--;
+			}
+			cout<<ans<<endl;
 	}
 }

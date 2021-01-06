@@ -20,11 +20,20 @@ int main() {
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	ll tc;
-	cin >> tc;
-	while (tc--) {
 		ll n;
 		cin >> n;
-		cout<<n;
+		unordered_map<ll,ll> home,guest;
+		for(ll i=0;i<n;i++){
+			ll x,y;
+			cin>>x>>y;
+			home[x]++;
+			guest[y]++;
+		}
+		ll ans=0;
+		for(auto i:home){
+			auto curr=guest.find(i.first);
+			if(curr!=guest.end())
+			ans+=i.second*curr->second;
+		}
+		cout<<ans<<endl;
 	}
-}

@@ -20,11 +20,34 @@ int main() {
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	ll tc;
-	cin >> tc;
-	while (tc--) {
 		ll n;
 		cin >> n;
-		cout<<n;
+		set<ll> s;
+		ll p; cin>>p;
+		for(ll i=0;i<p;i++){
+			ll x;
+			cin>>x;
+			s.insert(x);
+		}
+		ll q; cin>>q;
+		for(ll i=0;i<q;i++){
+			ll x;
+			cin>>x;
+			s.insert(x);
+		}
+		ll i=1;
+		for (auto itr = s.begin();itr != s.end(); ++itr) 
+		{
+			if(*itr!=i){
+				cout<<"Oh, my keyboard!";
+				return 1;
+			}
+			else
+			{
+				i++;
+			}
+			
+		}
+		cout<<"I become the guy.";
+		
 	}
-}
