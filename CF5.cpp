@@ -35,19 +35,12 @@ int main() {
 			cin>>x;
 			s.insert(x);
 		}
-		ll i=1;
-		for (auto itr = s.begin();itr != s.end(); ++itr) 
-		{
-			if(*itr!=i){
-				cout<<"Oh, my keyboard!";
-				return 1;
-			}
-			else
-			{
-				i++;
-			}
-			
-		}
+		if(s.size()==n)
 		cout<<"I become the guy.";
+		else
+		{
+			cout<<"Oh, my keyboard!";
+		}
+		
 		
 	}
