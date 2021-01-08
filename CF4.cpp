@@ -20,14 +20,11 @@ int main() {
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-		string s;
-		cin >> s;
-		char* str;
-		str = &s[0];
-		char *token = strtok(str, "WUB"); 
-		while (token != NULL) 
-		{ 
-			cout<<token<<" "; 
-			token = strtok(NULL, "WUB"); 
-		} 
+	ll tc;
+	cin >> tc;
+	while (tc--) {
+		ll n;
+		cin >> n;
+		cout<<n;
 	}
+}

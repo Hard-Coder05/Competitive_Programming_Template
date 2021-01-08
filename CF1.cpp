@@ -25,27 +25,6 @@ int main() {
 	while (tc--) {
 		ll n;
 		cin >> n;
-		ll arr[n];
-		ll max=0,min=INF,maxi=-1,mini=-1;
-		for(ll i=0;i<n;i++){
-			ll x; cin>>x;
-			arr[i]=x;
-			if(x>max){
-				max=x;
-				maxi=i;
-			}
-			if(x<=min){
-				min=x;
-				mini=i;
-			}
-		} 
-		ll ans=0;
-			
-			ans+=maxi;
-			ans+=n-1-mini;
-			if(maxi>mini){
-				ans--;
-			}
-			cout<<ans<<endl;
+		cout<<n;
 	}
 }

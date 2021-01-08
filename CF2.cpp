@@ -23,20 +23,8 @@ int main() {
 	ll tc;
 	cin >> tc;
 	while (tc--) {
-		ll n,m;
-		cin >> n>>m;
-		ll i=0;
-		while(n>0&&m>0){
-			n--;
-			m--;
-			i++;
-		}
-		if(i&1)
-		cout<<"Akshat"<<endl;
-		else
-		{
-			cout<<"Malvika"<<endl;
-		}
-		
+		ll n;
+		cin >> n;
+		cout<<n;
 	}
 }
