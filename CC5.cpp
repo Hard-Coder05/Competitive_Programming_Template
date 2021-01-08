@@ -24,8 +24,8 @@ int main() {
 	ll tc;
 	cin >> tc;
 	while (tc--) {
-		ll n;
-		cin >> n;
-		cout<<n;
+		ll n,m;
+		cin >> n>>m;
+		set<ll> s;
 	}
 }

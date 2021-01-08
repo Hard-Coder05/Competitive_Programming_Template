@@ -61,30 +61,52 @@ int main() {
 	while (tc--) {
 		ll n;
 		cin >> n;
-        vector<vector<ll>> v;
-        vector<ll> arr;
+        vector<vector<ll>> neg;
+        vector<vector<ll>> pos;
+        map<ll,ll> arr;
         for(ll i=0;i<n;i++){
             ll m;
             cin>>m;
-            vector<ll> curr;
+            vector<ll> curr1,curr2;
             for(ll j=0;j<m;j++){
                 ll x;
                 cin>>x;
-                curr.push_back(x);
-                arr.push_back(abs(x));
+                if(x<0)
+                curr1.push_back(x);
+                else
+                    curr2.push_back(x);
+                arr[abs(x)]++;
             }
-            v.push_back(curr);
+            sort(curr1.begin(),curr1.end());
+            sort(curr2.begin(),curr2.end());
+            pos.push_back(curr2);
+            neg.push_back(curr1);
         }
-        if(n==1)
-        cout << count(v[0]) << endl;
-        else{
-            ll ans=0;
-            for(ll i=0;i<n;i++){
-                ans+=count(v[i]);
-                ans-=printPairs(v[i]);
+        ll ans=0;
+        for(ll i=0;i<n;i++){
+            ll negcount=0;
+            vector<ll> currneg=neg[i];
+            ll currnegsize=currneg.size();
+            for(ll a=0;a<currnegsize;a++){
+                if(arr[abs(currneg[a])]>1)
+                ans+=currnegsize-a-1;
+                else negcount++;
             }
-                ans+=countFreq(arr);
-                cout<<ans<<endl;
+            ll poscount=0;
+            vector<ll> currpos=pos[i];
+            ll currpossize=currpos.size();
+            for(ll a=0;a<currpossize;a++){
+                if(arr[abs(currpos[a])]>1)
+                ans+=currpossize-a-1;
+                else poscount++;
+            }
+            ans+=negcount*currpossize+poscount*currnegsize;
         }
+        for (auto i:arr) { 
+        if (i.second > 1) 
+        { 
+            ans++;
+        }}
+    cout<<ans<<endl; 
 	}  
 }
