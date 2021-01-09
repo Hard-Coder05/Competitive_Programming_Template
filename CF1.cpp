@@ -25,6 +25,19 @@ int main() {
 	while (tc--) {
 		ll n;
 		cin >> n;
-		cout<<n;
+		if(n==1)
+		cout<<9;
+		else if(n==2)
+		cout<<98;
+		else{
+		cout<<989;
+		int a=0;
+		for(ll i=0;i<n-3;i++){
+			cout<<a;
+			a++;
+			if(a==10)
+			a=0;}
+		}
+		cout<<endl;
 	}
 }
