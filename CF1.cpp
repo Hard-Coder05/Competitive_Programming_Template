@@ -32,8 +32,11 @@ int main() {
 			int x; cin>>x;
 			s.insert(x);
 		}
+		if(s.size()<=1)
+		cout<<"NO";
+		else{
 		auto itr=s.begin();
 		itr++;
 		cout<<*itr;
-	}
+	}}
 }
