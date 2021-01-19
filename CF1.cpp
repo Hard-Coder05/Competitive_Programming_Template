@@ -16,6 +16,31 @@ using namespace std;
 using i64 = long long;
 using u64 = unsigned long long;
 using u32 = unsigned;
+string updateString(string S,  
+                    string A, string B) 
+{   int l = A.length(); 
+    for (int i = 0; i + l <= S.length(); i++) 
+    { 
+        string curr = S.substr(i, i + l); 
+        if (curr == A)  
+        { 
+            string new_string = ""; 
+            new_string += S.substr(0, i) + B +  
+                          S.substr(i + l, S.length()); 
+            S = new_string; 
+            i += l - 1; 
+        } 
+        else
+        { 
+            string new_string = ""; 
+            new_string += S.substr(0, i) + A +  
+                          S.substr(i + l, S.length()); 
+            S = new_string; 
+            i += l - 1; 
+        } 
+    } 
+    return S; 
+}
 int main() {
 	FIO;
 #ifndef ONLINE_JUDGE
@@ -27,16 +52,41 @@ int main() {
 	while (tc--) {
 		int n;
 		cin >> n;
-		set<int> s;
-		for(int i=0;i<n;i++){
-			int x; cin>>x;
-			s.insert(x);
+		string s;
+		cin>>s;
+		char c;
+		cout<<"1";
+		if(s[0]=='0')
+		c='1';
+		else
+		c='2';
+		for(int i=1;i<n;i++){
+			if(s[i]=='1'){
+				if(c=='2'){
+					cout<<'0';
+					c='1';
+				}
+				else{
+					cout<<'1';
+					c='2';
+				}
+			}
+			else{
+				if(c=='2'){
+					cout<<'1';
+					c='1';
+				}
+				else if(c=='1'){
+					cout<<'0';
+					c='0';
+				}
+				else{
+					cout<<'1';
+					c='1';
+				}
+			}
 		}
-		if(s.size()<=1)
-		cout<<"NO";
-		else{
-		auto itr=s.begin();
-		itr++;
-		cout<<*itr;
-	}}
+		cout<<endl;
+		
+	}
 }
