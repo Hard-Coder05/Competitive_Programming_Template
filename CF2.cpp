@@ -25,8 +25,23 @@ int main() {
 	int tc;
 	cin >> tc;
 	while (tc--) {
-		int n;
-		cin >> n;
-		cout<<n;
+		int a,b,k;
+		cin >> a>>b>>k;
+		int arr1[a],arr2[b];
+		for(int i=0;i<k;i++)
+		cin>>arr1[i];
+		for(int i=0;i<k;i++)
+		cin>>arr2[i];
+		int count=0;
+		for(int i=0;i<k-1;i++){
+			int a1=arr1[i];
+			int b1=arr2[i];
+			for(int j=i+1;j<k;j++){
+				if(a1!=arr1[j]&&b1!=arr2[j]){
+					count++;
+				}
+			}
+		}
+		cout<<count<<endl;				
 	}
 }

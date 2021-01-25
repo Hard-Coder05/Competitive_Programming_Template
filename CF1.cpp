@@ -16,17 +16,32 @@ using namespace std;
 using i64 = long long;
 using u64 = unsigned long long;
 using u32 = unsigned;
+void printDivisors(unsigned long long n)
+{	if(n%2==1){
+			cout<<"YES"<<endl;
+			return;
+		}
+    for (unsigned long long i = 1; i <= sqrt(n); i++) {
+        if ((n % i == 0)&&(i>1&&i&1)) {
+			cout<<i<<endl;
+			cout<<"YES"<<endl;
+			return;
+            }
+        }
+		cout<<"NO"<<endl;
+			return;
+}
 int main() {
 	FIO;
 #ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	int tc;
+	unsigned long long tc;
 	cin >> tc;
 	while (tc--) {
-		int n;
+		unsigned long long n;
 		cin >> n;
-		cout<<n;
+		printDivisors(n);
 	}
 }

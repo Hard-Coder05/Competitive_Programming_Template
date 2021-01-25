@@ -27,6 +27,12 @@ int main() {
 	while (tc--) {
 		int n;
 		cin >> n;
-		cout<<n;
+		if((n/2020)>=(n%2020))
+		cout<<"YES"<<endl;
+		else
+		{
+			cout<<"NO"<<endl;
+		}
+		
 	}
 }
