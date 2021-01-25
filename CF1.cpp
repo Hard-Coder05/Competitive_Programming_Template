@@ -1,4 +1,4 @@
-/*
+ /*
 Problem Link: 
 #############################################
 Author: Siddharth Mishra
@@ -24,24 +24,9 @@ int main() {
 #endif
 	int tc;
 	cin >> tc;
-	map<string,int> mp;
 	while (tc--) {
-		int n,l; 
-		cin>>n>>l;
-		set<int> s;
-		for(int i=0;i<n;i++){
-			int x;
-			cin>>x;
-			s.insert(x);
-		}
-		double maxm=0;
-		int curr=0;
-		for(auto i:s){
-			maxm=max((double)(i-curr)/2,maxm);
-			curr=i;
-		}
-		maxm=max(maxm,l-curr);
-		maxm=max(maxm,*s.begin());
-		cout<<fixed<<setprecision(10)<<maxm<<endl;
+		int n;
+		cin >> n;
+		cout<<n;
 	}
 }
