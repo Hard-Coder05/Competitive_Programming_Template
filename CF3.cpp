@@ -13,20 +13,16 @@ GitHub: https://github.com/Hard-Coder05
 #define INF 1000000000000000003
 #define FIO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 using namespace std;
-using i64 = long long;
-using u64 = unsigned long long;
-using u32 = unsigned;
+typedef long long ll;
 int main() {
 	FIO;
 #ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	int tc;
+	ll tc;
 	cin >> tc;
 	while (tc--) {
-		int n;
-		cin >> n;
-		cout<<n;
+		
 	}
 }
