@@ -23,6 +23,19 @@ int main() {
 	ll tc;
 	cin >> tc;
 	while (tc--) {
-		
+		ll n;
+		cin>>n;
+		map<ll,ll> mp;
+		for(int i=0;i<n;i++){
+			ll x;
+			cin>>x;
+			mp[x]++;
+		}
+		ll maxm=INT_MIN;
+		for(auto i:mp){
+			if(i.second>maxm)
+			maxm=i.second;
+		}
+		cout<<maxm<<endl;
 	}
 }
