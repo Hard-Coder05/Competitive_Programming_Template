@@ -14,24 +14,6 @@ GitHub: https://github.com/Hard-Coder05
 #define FIO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 using namespace std;
 typedef long long ll;
-bool isDigitPresent(ll x, ll d) 
-{ 
-    while (x > 0) 
-    { 
-        if (x % 10 == d) 
-            break; 
-        x = x / 10; 
-    } 
-    return (x > 0); 
-}
-bool calc(ll n,ll d){
-while(n>=0){
-	if(isDigitPresent(n,d))
-	return true;
-	n-=d;
-}
-return false;
-}
 int main() {
 	FIO;
 #ifndef ONLINE_JUDGE
@@ -41,15 +23,6 @@ int main() {
 	ll tc;
 	cin >> tc;
 	while (tc--) {
-		ll q,d;
-		cin>>q>>d;
-		for(int i=0;i<q;i++){
-			ll x;
-			cin>>x;
-			if(calc(x,d))
-			cout<<"YES"<<endl;
-			else
-			cout<<"NO"<<endl;
-		}
+		
 	}
 }
