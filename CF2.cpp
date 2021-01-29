@@ -23,6 +23,27 @@ int main() {
 	ll tc;
 	cin >> tc;
 	while (tc--) {
-		
+		ll n;
+		double k;
+		cin>>n>>k;
+		k/=100;
+		ll sum;
+		cin>>sum;
+		ll change=0;
+		for(ll i=1;i<n;i++){
+			ll curr;
+			cin>>curr;
+			double p=(double)curr/sum;
+			if(p<=k){}
+			else{
+				double now=(double)curr/k;
+				now=ceil(now);
+				now-=sum;
+				change+=now;
+				sum+=(ll)now;
+			}
+			sum+=curr;
+		}
+		cout<<change<<endl;
 	}
 }

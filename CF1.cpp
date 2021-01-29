@@ -23,6 +23,20 @@ int main() {
 	ll tc;
 	cin >> tc;
 	while (tc--) {
-		
+		ll n,k;
+		cin>>n>>k;
+		if(n<k){
+			double ans=(double)k/n;
+			cout<<ceil(ans)<<endl;
+		}
+		else if(n==k){
+			cout<<1<<endl;
+		}
+		else{
+			double ans=(double)n/k;
+			ans=(ceil(ans)*k);
+			ans/=n;
+			cout<<ceil(ans)<<endl;
+		}
 	}
 }
