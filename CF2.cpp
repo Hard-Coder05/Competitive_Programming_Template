@@ -23,24 +23,21 @@ int main() {
 	ll tc;
 	cin >> tc;
 	while (tc--) {
-		ll n;
-		double k;
+		ll n,k;
 		cin>>n>>k;
-		k/=100;
 		ll sum;
 		cin>>sum;
 		ll change=0;
 		for(ll i=1;i<n;i++){
 			ll curr;
 			cin>>curr;
-			double p=(double)curr/sum;
-			if(p<=k){}
+			if(curr*100<=k*sum){}
 			else{
-				double now=(double)curr/k;
-				now=ceil(now);
-				now-=sum;
+				ll now=((curr*100)-(k*sum))/k;
+				if(((curr*100)-(k*sum))%k!=0)
+				now++;
 				change+=now;
-				sum+=(ll)now;
+				sum+=now;
 			}
 			sum+=curr;
 		}
