@@ -23,6 +23,22 @@ int main() {
 	ll tc;
 	cin >> tc;
 	while (tc--) {
-		
+		string s;
+		cin>>s;
+		ll n=s.length();
+		char prev=s[n-1];
+		ll i=0;
+		while(i>=0){
+		if(prev=='0'){
+			if(s[n-1-i]=='1')
+			break;
+			i++;
+		}
+		else{
+			if(s[n-1-i]=='0')
+			prev='0';
+			i++;
+		}}
+		cout<<n-i-1<<endl;
 	}
 }
