@@ -23,16 +23,19 @@ int main() {
 	ll tc;
 	cin >> tc;
 	while (tc--) {
-		ll n;cin>>n;
-		ll eve=0,odd=0;
-		for(ll i=0;i<n;i++){
-			ll x;
-			cin>>x;
-			if(x&1)
-			odd++;
-			else
-			eve++;
+		ll n,x;
+		cin>>n>>x;
+		bool ans=false;
+		for(ll i=1;i<=n;i++){
+			ll a=x/i;
+			if(i*a==x&&a<n){
+				ans=true;
+				break;
+			}
 		}
-		cout<<min(odd,eve)<<endl;
+		if(ans)
+		cout<<"YES"<<endl;
+		else
+		cout<<"NO"<<endl;
 	}
 }
