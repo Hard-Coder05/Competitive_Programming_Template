@@ -23,15 +23,37 @@ int main() {
 	ll tc;
 	cin >> tc;
 	while (tc--) {
-		ll n,x;
-		cin>>n>>x;
-		bool ans=false;
-		for(ll i=1;i<=n;i++){
-			ll a=x/i;
-			if(i*a==x&&a<n){
-				ans=true;
-				break;
-			}
+		ll x,y;
+		cin>>x>>y;
+		string s;
+		cin>>s;
+		ll u=0,d=0,l=0,r=0;
+		for(ll i=0;i<s.length();i++){
+			if(s[i]=='U')
+			u++;
+			else if(s[i]=='D')
+			d++;
+			else if(s[i]=='L')
+			l++;
+			else
+			r++;
+		}
+		bool ans=true;
+		if(x<0){
+			if(l<abs(x))
+			ans=false;
+		}
+		else{
+			if(r<x)
+			ans=false;
+		}
+		if(y<0){
+			if(d<abs(y))
+			ans=false;
+		}
+		else{
+			if(u<y)
+			ans=false;
 		}
 		if(ans)
 		cout<<"YES"<<endl;

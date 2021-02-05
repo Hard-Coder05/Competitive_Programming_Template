@@ -23,22 +23,38 @@ int main() {
 	ll tc;
 	cin >> tc;
 	while (tc--) {
-		string s;
-		cin>>s;
-		ll n=s.length();
-		char prev=s[n-1];
-		ll i=0;
-		while(i>=0){
-		if(prev=='0'){
-			if(s[n-1-i]=='1')
-			break;
-			i++;
+		ll n,k;
+		cin>>n>>k;
+		ll arr[n];
+		for(ll i=0;i<n;i++)
+		cin>>arr[i];
+		while(k-1){
+			ll i=0;
+			while(i<n-1){
+				if(arr[i]<arr[i+1]){
+				arr[i]++;
+				break;
+				}
+				else{
+					i++;
+				}
+			}
+			k--;
 		}
-		else{
-			if(s[n-1-i]=='0')
-			prev='0';
-			i++;
-		}}
-		cout<<n-i-1<<endl;
+		ll i=0;
+		bool ans=true;
+		while(i<n-1){
+				if(arr[i]<arr[i+1]){
+				arr[i]++;
+				ans=false;
+				cout<<i+1<<endl;
+				break;
+				}
+				else{
+					i++;
+				}
+		}
+		if(ans)
+		cout<<-1<<endl;
 	}
 }
