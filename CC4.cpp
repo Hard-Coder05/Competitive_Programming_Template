@@ -13,7 +13,7 @@ GitHub: https://github.com/Hard-Coder05
 #define INF 1000000000000000003
 #define FIO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 using namespace std;
-typedef long long int ll;
+typedef long long ll;
 int main() {
 	FIO;
 #ifndef ONLINE_JUDGE
@@ -23,8 +23,6 @@ int main() {
 	ll tc;
 	cin >> tc;
 	while (tc--) {
-		ll n;
-		cin >> n;
-		cout<<n;
+		
 	}
 }
