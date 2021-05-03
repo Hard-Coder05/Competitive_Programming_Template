@@ -17,6 +17,15 @@ GitHub: https://github.com/Hard-Coder05
 	cout.tie(NULL);
 using namespace std;
 typedef long long ll;
+bool isPerfectSquare(long double x)
+{
+	if (x >= 0)
+	{
+		long long sr = sqrt(x);
+		return (sr * sr == x);
+	}
+	return false;
+}
 int main()
 {
 	FIO;
@@ -28,9 +37,9 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
-		ll n, m, k;
-		cin >> n >> m >> k;
-		if (((n - 1) + n * (m - 1)) == k)
+		long double n;
+		cin >> n;
+		if (isPerfectSquare(n / 2) || isPerfectSquare(n / 4))
 			cout << "YES" << endl;
 		else
 			cout << "NO" << endl;

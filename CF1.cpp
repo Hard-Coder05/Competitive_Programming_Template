@@ -29,13 +29,35 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
-		double r, b, d;
-		cin >> r >> b >> d;
-		double less = (r > b) ? b : r;
-		double big = (r > b) ? r : b;
-		if (ceil((big - less) / less) > d)
+		ll n, x;
+		cin >> n >> x;
+		ll arr[n];
+		ll sum = 0;
+		for (ll i = 0; i < n; i++)
+		{
+			cin >> arr[i];
+			sum += arr[i];
+		}
+		if (sum == x)
 			cout << "NO" << endl;
 		else
+		{
 			cout << "YES" << endl;
+			ll currsum = 0;
+			for (ll i = 0; i < n; i++)
+			{
+				currsum += arr[i];
+				if (currsum == x)
+				{
+					cout << arr[i + 1] << " " << arr[i] << " ";
+					i++;
+				}
+				else
+				{
+					cout << arr[i] << " ";
+				}
+			}
+			cout << endl;
+		}
 	}
 }
