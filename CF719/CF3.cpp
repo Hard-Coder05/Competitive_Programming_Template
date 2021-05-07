@@ -36,5 +36,46 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
+		int n;
+		cin >> n;
+		if (n == 2)
+		{
+			cout << -1 << endl;
+			continue;
+		}
+		int arr[n][n];
+		int x = 1;
+		int i = 0;
+		int j = 0;
+		for (; i < n; i++)
+		{
+			for (; j < n, x <= n * n; j++, x += 2)
+			{
+				arr[i][j] = x;
+			}
+			if (x > n * n)
+				break;
+			j = 0;
+		}
+		x = 2;
+		for (; i < n; i++)
+		{
+			for (; j < n, x <= n * n; j++, x += 2)
+			{
+				arr[i][j] = x;
+			}
+			j = 0;
+		}
+		i = 0;
+		j = 0;
+		for (; i < n; i++)
+		{
+			for (; j < n; j++)
+			{
+				cout << arr[i][j] << " ";
+			}
+			j = 0;
+			cout << endl;
+		}
 	}
 }
