@@ -6,17 +6,25 @@ GitHub: https://github.com/Hard-Coder05
 #############################################
 */
 #include <bits/stdc++.h>
+using namespace std;
 #define endl "\n"
-#define max(a, b) (a < b ? b : a)
-#define min(a, b) ((a > b) ? b : a)
 #define MOD 1000000007
-#define INF 1000000000000000003
+#define INF INT_MAX
+#define vi vector<int>
+#define pii pair<int, int>
+#define ll long long
+#define ld long double
+#define PB push_back
+#define MP make_pair
+#define FF first
+#define SS second
+#define max(a, b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a > _b ? _a : _b; })
+#define min(a, b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
 #define FIO                           \
 	ios_base::sync_with_stdio(false); \
 	cin.tie(NULL);                    \
 	cout.tie(NULL);
-using namespace std;
-typedef long long ll;
+
 int main()
 {
 	FIO;
@@ -28,32 +36,5 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
-		ll n;
-		cin >> n;
-		string s;
-		cin >> s;
-		ll left = 0;
-		ll scount = 0;
-		for (ll i = 0; i < n; i++)
-		{
-			if (s[i] == '*')
-			{
-				left += i - scount;
-				scount++;
-			}
-		}
-		reverse(s.begin(), s.end());
-		ll right = 0;
-		scount = 0;
-		for (ll i = 0; i < n; i++)
-		{
-			if (s[i] == '*')
-			{
-				right += i - scount;
-				scount++;
-			}
-		}
-		ll ans = (right < left) ? right : left;
-		cout << ans << endl;
 	}
 }

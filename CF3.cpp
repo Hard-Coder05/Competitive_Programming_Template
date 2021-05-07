@@ -36,22 +36,5 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
-		ll n;
-		cin >> n;
-		string s;
-		cin >> s;
-		vector<ll> v;
-		for (ll i = 0; i < n; i++)
-			if (s[i] == '*')
-				v.PB(i);
-		ll a = v.size();
-		ll count = 0;
-		ll mid = a / 2;
-		ll midvalue = v[mid];
-		for (ll i = 0; i < mid; i++)
-		{
-			count += abs(abs(midvalue - v[i]) - abs(mid - i));
-		}
-		cout << count << endl;
 	}
 }

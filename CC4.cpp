@@ -6,15 +6,27 @@ GitHub: https://github.com/Hard-Coder05
 #############################################
 */
 #include <bits/stdc++.h>
-#define endl "\n"
-#define max(a, b) (a < b ? b : a) 
-#define min(a, b) ((a > b) ? b : a) 
-#define MOD 1000000007
-#define INF 1000000000000000003
-#define FIO ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
 using namespace std;
-typedef long long ll;
-int main() {
+#define endl "\n"
+#define MOD 1000000007
+#define INF INT_MAX
+#define vi vector<int>
+#define pii pair<int, int>
+#define ll long long
+#define ld long double
+#define PB push_back
+#define MP make_pair
+#define FF first
+#define SS second
+#define max(a, b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a > _b ? _a : _b; })
+#define min(a, b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
+#define FIO                           \
+	ios_base::sync_with_stdio(false); \
+	cin.tie(NULL);                    \
+	cout.tie(NULL);
+
+int main()
+{
 	FIO;
 #ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
@@ -22,7 +34,7 @@ int main() {
 #endif
 	ll tc;
 	cin >> tc;
-	while (tc--) {
-		
+	while (tc--)
+	{
 	}
 }
