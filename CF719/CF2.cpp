@@ -30,30 +30,30 @@ int main()
 	{
 		ll n;
 		cin >> n;
-		string s;
-		cin >> s;
-		ll left = 0;
-		ll scount = 0;
-		for (ll i = 0; i < n; i++)
+		int ten = 0;
+		ll i = 10;
+		ll curr = 1;
+		for (; i <= 1000000000; i *= 10)
 		{
-			if (s[i] == '*')
+			if (n > i)
 			{
-				left += i - scount;
-				scount++;
+				ten++;
+				curr *= 10;
+				curr++;
 			}
 		}
-		reverse(s.begin(), s.end());
-		ll right = 0;
-		scount = 0;
-		for (ll i = 0; i < n; i++)
+		int count = 0;
+		int a = curr;
+		for (int x = 0; x < 9; x++)
 		{
-			if (s[i] == '*')
+			if (curr <= n)
 			{
-				right += i - scount;
-				scount++;
+				count++;
+				curr += a;
 			}
+			else
+				break;
 		}
-		ll ans = (right < left) ? right : left;
-		cout << ans << endl;
+		cout << (ten * 9) + count << endl;
 	}
 }

@@ -6,17 +6,25 @@ GitHub: https://github.com/Hard-Coder05
 #############################################
 */
 #include <bits/stdc++.h>
+using namespace std;
 #define endl "\n"
-#define max(a, b) (a < b ? b : a)
-#define min(a, b) ((a > b) ? b : a)
 #define MOD 1000000007
-#define INF 1000000000000000003
+#define INF INT_MAX
+#define vi vector<int>
+#define pii pair<int, int>
+#define ll long long
+#define ld long double
+#define PB push_back
+#define MP make_pair
+#define FF first
+#define SS second
+#define max(a, b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a > _b ? _a : _b; })
+#define min(a, b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
 #define FIO                           \
 	ios_base::sync_with_stdio(false); \
 	cin.tie(NULL);                    \
 	cout.tie(NULL);
-using namespace std;
-typedef long long ll;
+
 int main()
 {
 	FIO;
@@ -28,38 +36,16 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
-		ll n;
+		int n;
 		cin >> n;
-		ll univ[n];
-		ll skill[n];
-		for (ll i = 0; i < n; i++)
-			cin >> univ[i];
-		for (ll i = 0; i < n; i++)
-			cin >> skill[i];
-		map<ll, vector<ll>> mp;
-		for (ll i = 0; i < n; i++)
+		if (n == 2)
 		{
-			mp[univ[i] - 1].insert(skill[i]);
+			cout << -1 << endl;
+			continue;
 		}
-		map<ll, vector<ll>>::iterator itr;
-		for (itr = mp.begin(); itr != mp.end(); ++itr)
+		if (n == 1)
 		{
-			sort((itr->second).begin(), (itr->second).end(), greater<int>());
-			auto i = (itr->second).begin();
-			ll sum = *i;
-			if (i != (itr->second).end())
-				i++;
-			for (; i != (itr->second).end(); i++)
-			{
-				sum += *i;
-				*i = sum;
-			}
-		}
-		for (ll k = 1; k <= n; k++)
-		{
-			for (itr = mp.begin(); itr != mp.end(); ++itr)
-			{
-			}
+			cout << 1 << endl;
 		}
 	}
 }

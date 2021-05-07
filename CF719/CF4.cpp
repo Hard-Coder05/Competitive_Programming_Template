@@ -17,6 +17,19 @@ GitHub: https://github.com/Hard-Coder05
 	cout.tie(NULL);
 using namespace std;
 typedef long long ll;
+ll countPairs(ll arr[], ll n)
+{
+	unordered_map<ll, ll> map;
+	for (ll i = 0; i < n; i++)
+		map[arr[i] - i]++;
+	ll res = 0;
+	for (auto x : map)
+	{
+		ll cnt = x.second;
+		res += ((cnt * (cnt - 1)) / 2);
+	}
+	return res;
+}
 int main()
 {
 	FIO;
@@ -30,30 +43,9 @@ int main()
 	{
 		ll n;
 		cin >> n;
-		string s;
-		cin >> s;
-		ll left = 0;
-		ll scount = 0;
+		ll arr[n];
 		for (ll i = 0; i < n; i++)
-		{
-			if (s[i] == '*')
-			{
-				left += i - scount;
-				scount++;
-			}
-		}
-		reverse(s.begin(), s.end());
-		ll right = 0;
-		scount = 0;
-		for (ll i = 0; i < n; i++)
-		{
-			if (s[i] == '*')
-			{
-				right += i - scount;
-				scount++;
-			}
-		}
-		ll ans = (right < left) ? right : left;
-		cout << ans << endl;
+			cin >> arr[i];
+		cout << countPairs(arr, n) << endl;
 	}
 }

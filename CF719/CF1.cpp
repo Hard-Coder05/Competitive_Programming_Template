@@ -28,32 +28,35 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
-		ll n;
+		int n;
 		cin >> n;
 		string s;
 		cin >> s;
-		ll left = 0;
-		ll scount = 0;
-		for (ll i = 0; i < n; i++)
+		char prev = s[0];
+		bool repeated = false;
+		for (int i = 1; i < n; i++)
 		{
-			if (s[i] == '*')
+			if (prev == s[i])
+				continue;
+			else
 			{
-				left += i - scount;
-				scount++;
+				for (int j = i; j < n; j++)
+				{
+					if (prev == s[j])
+					{
+						repeated = true;
+						break;
+					}
+				}
 			}
+			if (repeated)
+				break;
+			else
+				prev = s[i];
 		}
-		reverse(s.begin(), s.end());
-		ll right = 0;
-		scount = 0;
-		for (ll i = 0; i < n; i++)
-		{
-			if (s[i] == '*')
-			{
-				right += i - scount;
-				scount++;
-			}
-		}
-		ll ans = (right < left) ? right : left;
-		cout << ans << endl;
+		if (repeated)
+			cout << "NO" << endl;
+		else
+			cout << "YES" << endl;
 	}
 }
