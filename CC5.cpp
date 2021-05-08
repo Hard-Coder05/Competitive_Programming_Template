@@ -24,7 +24,22 @@ using namespace std;
 	ios_base::sync_with_stdio(false); \
 	cin.tie(NULL);                    \
 	cout.tie(NULL);
-
+ll gcd(ll a, ll b)
+{
+	if (b == 0)
+		return a;
+	return gcd(b, a % b);
+}
+void solve(ll k)
+{
+	ll s = 0;
+	for (ll i = 1; i < (2 * k + 1); i++)
+	{
+		ll g = gcd(k + i * i, 2 * i + 1);
+		s += g;
+	}
+	cout << s << endl;
+}
 int main()
 {
 	FIO;
@@ -36,5 +51,8 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
+		ll n;
+		cin >> n;
+		solve(n);
 	}
 }

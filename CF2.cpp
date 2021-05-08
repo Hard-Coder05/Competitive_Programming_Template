@@ -36,5 +36,71 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
+		ll x;
+		cin >> x;
+		char arr[x][x];
+		ll x1 = -1, x2 = -1, y1 = -1, y2 = -1;
+		for (ll i = 0; i < x; i++)
+		{
+			for (int j = 0; j < x; j++)
+			{
+				cin >> arr[i][j];
+				if (arr[i][j] == '*')
+				{
+					if (x1 == -1)
+					{
+						x1 = i;
+						y1 = j;
+					}
+					else
+					{
+						x2 = i;
+						y2 = j;
+					}
+				}
+			}
+		}
+		if (x1 == x2)
+		{
+			if (x1 - 1 >= 0)
+			{
+				arr[x1 - 1][y1] = '*';
+				arr[x1 - 1][y2] = '*';
+			}
+			else
+			{
+				arr[x1 + 1][y1] = '*';
+				arr[x1 + 1][y2] = '*';
+			}
+		}
+		else
+		{
+			if (y1 == y2)
+			{
+				if (y1 - 1 >= 0)
+				{
+					arr[x1][y1 - 1] = '*';
+					arr[x2][y1 - 1] = '*';
+				}
+				else
+				{
+					arr[x1][y1 + 1] = '*';
+					arr[x2][y1 + 1] = '*';
+				}
+			}
+			else
+			{
+				arr[x1][y2] = '*';
+				arr[x2][y1] = '*';
+			}
+		}
+		for (ll i = 0; i < x; i++)
+		{
+			for (int j = 0; j < x; j++)
+			{
+				cout << arr[i][j];
+			}
+			cout << endl;
+		}
 	}
 }
