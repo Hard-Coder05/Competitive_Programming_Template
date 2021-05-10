@@ -35,8 +35,7 @@ void solve(ll k)
 	ll s = 0;
 	for (ll i = 1; i < (2 * k + 1); i++)
 	{
-		ll g = gcd(k + i * i, 2 * i + 1);
-		s += g;
+		s + = (gcd(k + i * i, 2 * i + 1));
 	}
 	cout << s << endl;
 }
