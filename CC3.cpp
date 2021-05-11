@@ -33,9 +33,15 @@ int main()
 	{
 		ll n, m;
 		cin >> n >> m;
+		ll count = n - 1;
+		if (n > m)
+		{
+			for (ll i = n; i > m; i--)
+				count += (i - 2);
+			n = m;
+		}
 		map<ll, ll> mp;
 		mp[m - (m % n)]++;
-		ll count = n - 1;
 		for (ll i = n - 1; i > 1; i--)
 		{
 			for (auto &a : mp)
