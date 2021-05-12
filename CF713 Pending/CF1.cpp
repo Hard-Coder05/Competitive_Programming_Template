@@ -36,5 +36,30 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
+		ll n;
+		cin >> n;
+		ll arr[n];
+		for (ll i = 0; i < n; i++)
+			cin >> arr[i];
+		ll a = arr[0] ^ arr[1] ^ arr[2];
+		bool repeated = false;
+		if (a == arr[0] && a == arr[1] && a == arr[2])
+			repeated = true;
+		if (repeated)
+		{
+			for (ll i = 0; i < n; i++)
+			{
+				if (arr[i] != a)
+					cout << i + 1 << endl;
+			}
+		}
+		else
+		{
+			for (ll i = 0; i < 3; i++)
+			{
+				if (arr[i] == a)
+					cout << i + 1 << endl;
+			}
+		}
 	}
 }
