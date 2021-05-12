@@ -24,33 +24,17 @@ using namespace std;
 	ios_base::sync_with_stdio(false); \
 	cin.tie(NULL);                    \
 	cout.tie(NULL);
+
 int main()
 {
 	FIO;
+#ifndef ONLINE_JUDGE
+	freopen("input.txt", "r", stdin);
+	freopen("output.txt", "w", stdout);
+#endif
 	ll tc;
 	cin >> tc;
 	while (tc--)
 	{
-		ll n, m;
-		cin >> n >> m;
-		ll count = n - 1;
-		if (n > m)
-		{
-			for (ll i = n; i > m; i--)
-				count += (i - 2);
-			n = m;
-		}
-		map<ll, ll> mp;
-		mp[m - (m % n)]++;
-		for (ll i = n - 1; i > 1; i--)
-		{
-			for (auto &a : mp)
-			{
-				if (a.FF % i == 0)
-					count += a.SS;
-			}
-			mp[m - (m % i)]++;
-		}
-		cout << count << endl;
 	}
 }
