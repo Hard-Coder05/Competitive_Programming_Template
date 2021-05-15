@@ -32,9 +32,15 @@ int main()
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	ll tc;
-	cin >> tc;
-	while (tc--)
-	{
-	}
+	ll n, x, k;
+	cin >> n >> x >> k;
+	ll ini[n];
+	ll rate[n];
+	for (ll i = 0; i < n; i++)
+		cin >> ini[i];
+	for (ll i = 0; i < n; i++)
+		cin >> rate[i];
+	ll minday[n];
+	for (ll i = 0; i < n; i++)
+		minday[i] = ceil((k - ini[i]) / rate[i]);
 }
