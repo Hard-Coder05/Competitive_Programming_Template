@@ -36,19 +36,5 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
-		ll n;
-		cin >> n;
-		ll arr[n];
-		for (ll i = 0; i < n; i++)
-			cin >> arr[i];
-		sort(arr, arr + n);
-		ll start = arr[0];
-		ll ans = 0;
-		for (auto &i : arr)
-			if (i == start)
-				ans++;
-			else
-				break;
-		cout << n - ans << endl;
 	}
 }
