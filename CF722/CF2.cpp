@@ -36,5 +36,50 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
+		ll n;
+		cin >> n;
+		ll pos = 0;
+		ll neg = 0;
+		ll zero = 0;
+		vector<ll> nums;
+		for (ll i = 0; i < n; i++)
+		{
+			ll x;
+			cin >> x;
+			if (x > 0)
+				pos++;
+			else if (x == 0)
+				zero++;
+			else
+				neg++;
+			nums.PB(x);
+		}
+		if (zero >= 2)
+		{
+			cout << neg + zero << endl;
+			continue;
+		}
+		sort(nums.begin(), nums.end());
+		ll mn = INF;
+		for (int i = 0; i < n; i++)
+			if (nums[i] > 0)
+			{
+				mn = min(mn, nums[i]);
+				break;
+			}
+		bool ans = (mn < INF);
+		for (ll i = 1; i < n; i++)
+		{
+			if (!ans)
+				break;
+			if (nums[i] <= 0)
+				ans &= (abs(nums[i] - nums[i - 1]) >= mn);
+			else
+				break;
+		}
+		if (ans)
+			cout << zero + neg + 1 << endl;
+		else
+			cout << zero + neg << endl;
 	}
 }
