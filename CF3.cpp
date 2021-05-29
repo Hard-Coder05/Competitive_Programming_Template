@@ -32,9 +32,14 @@ int main()
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	ll tc;
-	cin >> tc;
-	while (tc--)
+	ll n;
+	cin >> n;
+	ll arr[n];
+	ll sum = 0;
+	for (ll i = 0; i < n; i++)
 	{
+		cin >> arr[i];
+		sum += arr[i];
 	}
+	
 }
