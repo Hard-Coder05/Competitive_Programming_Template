@@ -18,8 +18,18 @@ using namespace std;
 #define MP make_pair
 #define FF first
 #define SS second
-#define max(a, b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a > _b ? _a : _b; })
-#define min(a, b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
+#define max(a, b) (             \
+	{                           \
+		__typeof__(a) _a = (a); \
+		__typeof__(b) _b = (b); \
+		_a > _b ? _a : _b;      \
+	})
+#define min(a, b) (             \
+	{                           \
+		__typeof__(a) _a = (a); \
+		__typeof__(b) _b = (b); \
+		_a < _b ? _a : _b;      \
+	})
 #define FIO                           \
 	ios_base::sync_with_stdio(false); \
 	cin.tie(NULL);                    \
@@ -32,14 +42,9 @@ int main()
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	ll n;
-	cin >> n;
-	ll arr[n];
-	ll sum = 0;
-	for (ll i = 0; i < n; i++)
+	ll tc;
+	cin >> tc;
+	while (tc--)
 	{
-		cin >> arr[i];
-		sum += arr[i];
 	}
-	
 }

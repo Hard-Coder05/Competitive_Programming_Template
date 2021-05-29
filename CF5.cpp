@@ -18,8 +18,18 @@ using namespace std;
 #define MP make_pair
 #define FF first
 #define SS second
-#define max(a, b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a > _b ? _a : _b; })
-#define min(a, b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
+#define max(a, b) (             \
+	{                           \
+		__typeof__(a) _a = (a); \
+		__typeof__(b) _b = (b); \
+		_a > _b ? _a : _b;      \
+	})
+#define min(a, b) (             \
+	{                           \
+		__typeof__(a) _a = (a); \
+		__typeof__(b) _b = (b); \
+		_a < _b ? _a : _b;      \
+	})
 #define FIO                           \
 	ios_base::sync_with_stdio(false); \
 	cin.tie(NULL);                    \
@@ -36,22 +46,5 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
-		ll a, b;
-		cin >> a >> b;
-		string s;
-		cin >> s;
-		char arr[s.length()];
-		ll zero = 0, one = 0;
-		for (ll i = 0; i < n; i++)
-		{
-			arr[i] = s[i];
-			if (arr[i] == '0')
-				zero++;
-			if (arr[i] == '1')
-				one++;
-		}
-		for (ll i = 0; i < n / 2; i++)
-		{
-		}
 	}
 }

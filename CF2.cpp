@@ -18,8 +18,18 @@ using namespace std;
 #define MP make_pair
 #define FF first
 #define SS second
-#define max(a, b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a > _b ? _a : _b; })
-#define min(a, b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
+#define max(a, b) (             \
+	{                           \
+		__typeof__(a) _a = (a); \
+		__typeof__(b) _b = (b); \
+		_a > _b ? _a : _b;      \
+	})
+#define min(a, b) (             \
+	{                           \
+		__typeof__(a) _a = (a); \
+		__typeof__(b) _b = (b); \
+		_a < _b ? _a : _b;      \
+	})
 #define FIO                           \
 	ios_base::sync_with_stdio(false); \
 	cin.tie(NULL);                    \
@@ -38,21 +48,20 @@ int main()
 	{
 		ll n;
 		cin >> n;
-		vector<ll> v;
-		while (n > 0)
+		ll i = 0;
+		while (i < 20)
 		{
-			v.push_back(n % 10);
-			n /= 10;
+			i++;
+			if (n % 11 == 0)
+			{
+				break;
+			}
+
+			n -= 111;
 		}
-		ll curr = v[v.size() - 1];
-		for (ll i = v.size() - 2; i >= 0; i--)
-		{
-			v[i] -= curr;
-			curr += v[i];
-		}
-		if (v[0] != 0)
-			cout << "NO" << endl;
-		else
+		if (n % 11 == 0 && n >= 0)
 			cout << "YES" << endl;
+		else
+			cout << "NO" << endl;
 	}
 }

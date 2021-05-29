@@ -42,9 +42,33 @@ int main()
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	ll tc;
-	cin >> tc;
-	while (tc--)
+	ll n;
+	cin >> n;
+	multiset<ll> ms;
+	ll sum = 0;
+	for (ll i = 0; i < n; i++)
 	{
+		ll x;
+		cin >> x;
+		if (sum + x >= 0)
+		{
+			ms.insert(x);
+			sum += x;
+		}
+		else
+		{
+			ll bigneg = *(ms.begin());
+			if (bigneg <= x)
+			{
+				ms.erase(ms.begin());
+				sum -= bigneg;
+				sum += x;
+				ms.insert(x);
+			}
+		}
 	}
+	//for (auto &i : ms)
+	//	cout << i << " ";
+	//cout << endl;
+	cout << ms.size() << endl;
 }
