@@ -46,22 +46,5 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
-		ll n;
-		cin >> n;
-		ll i = 0;
-		while (i < 20)
-		{
-			i++;
-			if (n % 11 == 0)
-			{
-				break;
-			}
-
-			n -= 111;
-		}
-		if (n % 11 == 0 && n >= 0)
-			cout << "YES" << endl;
-		else
-			cout << "NO" << endl;
 	}
 }
