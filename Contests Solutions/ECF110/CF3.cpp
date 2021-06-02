@@ -46,5 +46,21 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
+		string s;
+		cin >> s;
+		ll n = s.size();
+		ll x[2] = {-1, -1};
+		ll ans = 0;
+		for (ll i = 0; i < n; i++)
+		{
+			int curr = s[i] - '0';
+			if (curr == 1 || curr == 0)
+			{
+				x[curr ^ (i % 2)] = i;
+			}
+			int mn = min(x[0], x[1]);
+			ans += i - mn;
+		}
+		cout << ans << endl;
 	}
 }
