@@ -46,5 +46,14 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
+		ll arr[4];
+		cin >> arr[0] >> arr[1] >> arr[2] >> arr[3];
+		ll w1 = max(arr[0], arr[1]);
+		ll w2 = max(arr[2], arr[3]);
+		sort(arr, arr + 4);
+		if ((arr[3] == w1 || arr[3] == w2) && (arr[2] == w1 || arr[2] == w2))
+			cout << "YES" << endl;
+		else
+			cout << "NO" << endl;
 	}
 }
