@@ -34,7 +34,19 @@ using namespace std;
 	ios_base::sync_with_stdio(false); \
 	cin.tie(NULL);                    \
 	cout.tie(NULL);
-
+stack<ll> ans;
+ll kadane(ll arr[], ll n)
+{
+	ll max_so_far = 0;
+	ll max_ending_here = 0;
+	for (ll i = 0; i < n; i++)
+	{
+		max_ending_here = max_ending_here + arr[i];
+		max_ending_here = max(max_ending_here, 0LL);
+		max_so_far = max(max_so_far, max_ending_here);
+	}
+	return max_so_far;
+}
 int main()
 {
 	FIO;
@@ -46,5 +58,30 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
+		ll n, k;
+		cin >> n >> k;
+		ll A[n];
+		for (int i = 0; i < n; i++)
+		{
+			cin >> A[i];
+		}
+		if (k == 1)
+		{
+			ll neg = 0;
+			for (int i = 0; i < n; i++)
+			{
+				if (A[i] < 0)
+					neg += 1;
+			}
+			if (neg == n)
+			{
+				sort(A, A + n);
+				cout << A[n - 1] << "\n";
+				continue;
+			}
+			ll sol = kadane(A, n);
+
+			cout << sol << "\n";
+		}
 	}
 }

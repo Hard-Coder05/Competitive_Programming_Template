@@ -46,5 +46,23 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
+		ll n;
+		cin >> n;
+		vector<ll> v;
+		while (n > 0)
+		{
+			v.push_back(n % 10);
+			n /= 10;
+		}
+		ll curr = v[v.size() - 1];
+		for (ll i = v.size() - 2; i >= 0; i--)
+		{
+			v[i] -= curr;
+			curr += v[i];
+		}
+		if (v[0] != 0)
+			cout << "NO" << endl;
+		else
+			cout << "YES" << endl;
 	}
 }

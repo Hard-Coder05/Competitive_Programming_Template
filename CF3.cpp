@@ -46,5 +46,7 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
+		string s;
+		cin >> s;
 	}
 }

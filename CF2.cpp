@@ -34,7 +34,12 @@ using namespace std;
 	ios_base::sync_with_stdio(false); \
 	cin.tie(NULL);                    \
 	cout.tie(NULL);
-
+ll gcd(ll a, ll b)
+{
+	if (b == 0)
+		return a;
+	return gcd(b, a % b);
+}
 int main()
 {
 	FIO;
@@ -46,5 +51,35 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
+		ll n;
+		cin >> n;
+		vector<ll> odds;
+		ll eves = 0;
+		for (ll i = 0; i < n; i++)
+		{
+			ll x;
+			cin >> x;
+			if (!(x & 1))
+				eves++;
+			else
+				odds.PB(x);
+		}
+		ll ans = 0;
+		ll curr = n - 1;
+		while (eves--)
+		{
+			ans += curr;
+			curr--;
+		}
+		ll oddSize = odds.size();
+		if (oddSize <= 1)
+		{
+			cout << ans << endl;
+			continue;
+		}
+		for (int i = 0; i < oddSize - 1; i++)
+			for (int j = i + 1; j < oddSize; j++)
+				ans += (gcd(odds[i], odds[j]) > 1) ? 1 : 0;
+		cout << ans << endl;
 	}
 }

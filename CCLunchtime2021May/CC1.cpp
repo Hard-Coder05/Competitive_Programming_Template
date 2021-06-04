@@ -46,5 +46,12 @@ int main()
 	cin >> tc;
 	while (tc--)
 	{
+		ll a, b, c, d, k;
+		cin >> a >> b >> c >> d >> k;
+		ll step = abs(a - c) + abs(b - d);
+		if (k >= step && (k - step) % 2 == 0)
+			cout << "YES" << endl;
+		else
+			cout << "NO" << endl;
 	}
 }
