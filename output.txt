@@ -1,4 +1,0 @@
-BOB
-ALICE
-ALICE
-BOB

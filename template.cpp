@@ -1,5 +1,4 @@
-/*
-Problem Link: 
+/* 
 #############################################
 Author: Siddharth Mishra
 GitHub: https://github.com/Hard-Coder05
@@ -10,31 +9,82 @@ using namespace std;
 #define endl "\n"
 #define MOD 1000000007
 #define INF INT_MAX
+#define ll long long
+#define int long long
 #define vi vector<int>
 #define pii pair<int, int>
-#define ll long long
 #define ld long double
 #define PB push_back
 #define MP make_pair
 #define FF first
 #define SS second
-#define max(a, b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a > _b ? _a : _b; })
-#define min(a, b) ({ __typeof__ (a) _a = (a); __typeof__ (b) _b = (b); _a < _b ? _a : _b; })
-#define FIO                           \
-	ios_base::sync_with_stdio(false); \
-	cin.tie(NULL);                    \
-	cout.tie(NULL);
-
-int main()
+#define max(a, b) (             \
+	{                           \
+		__typeof__(a) _a = (a); \
+		__typeof__(b) _b = (b); \
+		_a > _b ? _a : _b;      \
+	})
+#define min(a, b) (             \
+	{                           \
+		__typeof__(a) _a = (a); \
+		__typeof__(b) _b = (b); \
+		_a < _b ? _a : _b;      \
+	})
+//////////////////////////////////////////////////////////////////////////////
+int power(int a, int b)
 {
-	FIO;
+	int res = 1ll;
+	while (b > 0)
+	{
+		if (b % 2ll)
+			res = (res * a) % mod;
+		a = (a * a) % mod;
+		b /= 2ll;
+	}
+	return res;
+}
+int GCD(int a, int b)
+{
+	if (b == 0)
+		return a;
+	return GCD(b, a % b);
+}
+int fact(int n)
+{
+	int res = 1;
+	for (int i = 2; i <= n; i++)
+	{
+		res = (res * i) % mod;
+	}
+	return res % mod;
+}
+int ModularInverse(int a)
+{
+	return binaryExponentiation(a, mod - 2);
+}
+int nCr(int n, int r)
+{
+	return (fact(n) * ModularInverse((fact(r) * fact(n - r)) % mod)) % mod;
+}
+//////////////////////////////////////////////////////////////////////////////
+
+void solve()
+{
+}
+
+signed main()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 #ifndef ONLINE_JUDGE
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	ll tc;
+	int tc;
 	cin >> tc;
 	while (tc--)
 	{
+		solve();
 	}
 }
