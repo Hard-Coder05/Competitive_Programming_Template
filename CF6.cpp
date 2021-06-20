@@ -37,8 +37,8 @@ int power(int a, int b)
 	while (b > 0)
 	{
 		if (b % 2ll)
-			res = (res * a) % mod;
-		a = (a * a) % mod;
+			res = (res * a) % MOD;
+		a = (a * a) % MOD;
 		b /= 2ll;
 	}
 	return res;
@@ -54,24 +54,15 @@ int fact(int n)
 	int res = 1;
 	for (int i = 2; i <= n; i++)
 	{
-		res = (res * i) % mod;
+		res = (res * i) % MOD;
 	}
-	return res % mod;
-}
-int ModularInverse(int a)
-{
-	return binaryExponentiation(a, mod - 2);
-}
-int nCr(int n, int r)
-{
-	return (fact(n) * ModularInverse((fact(r) * fact(n - r)) % mod)) % mod;
+	return res % MOD;
 }
 //////////////////////////////////////////////////////////////////////////////
 
 void solve()
 {
 }
-
 signed main()
 {
 	ios_base::sync_with_stdio(false);
