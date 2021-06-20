@@ -58,10 +58,37 @@ int fact(int n)
 	}
 	return res % MOD;
 }
+bool isPrime(int n)
+{
+	if (n == 0 || n == 1)
+		return false;
+
+	for (int i = 2; i * i <= n; i++)
+	{
+		if (n % i == 0)
+			return false;
+	}
+	return true;
+}
 //////////////////////////////////////////////////////////////////////////////
 
 void solve()
 {
+	int n, x, t;
+	cin >> n >> x >> t;
+	int ans = 0;
+	if (t / x >= n)
+	{
+		cout << (n - 1) * n / 2 << endl;
+		return;
+	}
+	if (t / x < n)
+	{
+		ans += (t / x) * (n - (t / x));
+		n = t / x;
+		ans += (n - 1) * n / 2;
+		cout << ans << endl;
+	}
 }
 signed main()
 {

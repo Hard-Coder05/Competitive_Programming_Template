@@ -58,10 +58,41 @@ int fact(int n)
 	}
 	return res % MOD;
 }
+bool isPrime(int n)
+{
+	if (n == 0 || n == 1)
+		return false;
+
+	for (int i = 2; i * i <= n; i++)
+	{
+		if (n % i == 0)
+			return false;
+	}
+	return true;
+}
 //////////////////////////////////////////////////////////////////////////////
 
 void solve()
 {
+	int n, q;
+	cin >> n >> q;
+	string s;
+	cin >> s;
+	int arr[n];
+	for (int i = 0; i < n; i++)
+		arr[i] = ((s[i] - 'a') + 1);
+	for (int i = 1; i < n; i++)
+		arr[i] += arr[i - 1];
+	while (q--)
+	{
+		int l, r;
+		cin >> l >> r;
+		l--;
+		r--;
+		int left = (l == 0) ? 0 : arr[l - 1];
+		int right = arr[r];
+		cout << right - left << endl;
+	}
 }
 signed main()
 {
@@ -72,8 +103,8 @@ signed main()
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	int tc;
-	cin >> tc;
+	int tc = 1;
+	//cin >> tc;
 	while (tc--)
 	{
 		solve();

@@ -58,10 +58,71 @@ int fact(int n)
 	}
 	return res % MOD;
 }
-//////////////////////////////////////////////////////////////////////////////
+bool isPrime(int n)
+{
+	if (n == 0 || n == 1)
+		return false;
 
+	for (int i = 2; i * i <= n; i++)
+	{
+		if (n % i == 0)
+			return false;
+	}
+	return true;
+}
+//////////////////////////////////////////////////////////////////////////////
+bool comparator(pii one, pii two)
+{
+	return one.SS < two.SS;
+}
 void solve()
 {
+	int n;
+	cin >> n;
+	vector<pii> arr(n);
+	int ans = 0;
+	for (int i = 0; i < n; i++)
+	{
+		cin >> arr[i].FF >> arr[i].SS;
+		ans += 2 * arr[i].FF;
+	}
+	sort(arr.begin(), arr.end(), comparator);
+	reverse(arr.begin(), arr.end());
+	int i = 0, j = n - 1, curr = 0;
+	while (i <= j)
+	{
+		int now = arr[j].SS;
+		if (i == j)
+		{
+			int y = arr[i].FF;
+			int x = max(0ll, arr[i].SS - curr);
+			y = max(0ll, y - x);
+			ans -= y;
+			break;
+		}
+		else if (curr >= now)
+		{
+			curr += arr[j].FF;
+			ans -= arr[j].FF;
+			j--;
+		}
+		else if (curr + arr[i].FF <= arr[j].SS)
+		{
+			curr += arr[i].FF;
+			arr[i].FF = 0;
+			i++;
+		}
+		else
+		{
+			int x = arr[j].SS - curr;
+			curr += x;
+			curr += arr[j].FF;
+			arr[i].FF -= x;
+			ans -= arr[j].FF;
+			j--;
+		}
+	}
+	cout << ans << endl;
 }
 signed main()
 {
@@ -72,8 +133,8 @@ signed main()
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	int tc;
-	cin >> tc;
+	int tc = 1;
+	//cin >> tc;
 	while (tc--)
 	{
 		solve();

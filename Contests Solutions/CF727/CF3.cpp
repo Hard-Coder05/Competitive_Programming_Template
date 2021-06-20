@@ -58,10 +58,55 @@ int fact(int n)
 	}
 	return res % MOD;
 }
+bool isPrime(int n)
+{
+	if (n == 0 || n == 1)
+		return false;
+
+	for (int i = 2; i * i <= n; i++)
+	{
+		if (n % i == 0)
+			return false;
+	}
+	return true;
+}
 //////////////////////////////////////////////////////////////////////////////
 
 void solve()
 {
+	int n, k, x;
+	cin >> n >> k >> x;
+	vector<int> arr;
+	for (int i = 0; i < n; i++)
+	{
+		int curr;
+		cin >> curr;
+		arr.PB(curr);
+	}
+	sort(arr.begin(), arr.end());
+	priority_queue<int, vector<int>, greater<int>> breaks;
+	int count = 1;
+	for (int i = 1; i < n; i++)
+	{
+		if (arr[i] - arr[i - 1] > x)
+		{
+			count++;
+			breaks.push((arr[i] - arr[i - 1] - 1) / x);
+		}
+	}
+	while (k != 0 && !breaks.empty())
+	{
+
+		if (breaks.top() <= k)
+		{
+			count--;
+			k -= breaks.top();
+			breaks.pop();
+		}
+		else
+			break;
+	}
+	cout << count << endl;
 }
 signed main()
 {
@@ -72,8 +117,8 @@ signed main()
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	int tc;
-	cin >> tc;
+	int tc = 1;
+	//cin >> tc;
 	while (tc--)
 	{
 		solve();
