@@ -59,14 +59,32 @@ int fact(int n)
 	return res % MOD;
 }
 //////////////////////////////////////////////////////////////////////////////
-bool comp(pair<string, int> a, pair<string, int> b)
-{
-	if (a.second != b.second)
-		return a.second > b.second;
-	return a.first < b.first;
-}
+
 void solve()
 {
+	int n, count = 0;
+	cin >> n;
+	vector<int> index((2 * n) + 1, INT_MAX);
+	int j = 0;
+	while (j < n)
+	{
+		int i;
+		cin >> i;
+		index[i] = j + 1;
+		j++;
+	}
+	for (int i = 3; i < 2 * n; i++)
+	{
+		for (int j = 1; j <= sqrt(i); j++)
+		{
+			if (i % j == 0 && i != j * j)
+			{
+				if (index[j] + index[i / j] == i)
+					count++;
+			}
+		}
+	}
+	cout << count << endl;
 }
 signed main()
 {
@@ -77,8 +95,8 @@ signed main()
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	int tc = 1;
-	//cin >> tc;
+	int tc;
+	cin >> tc;
 	while (tc--)
 	{
 		solve();

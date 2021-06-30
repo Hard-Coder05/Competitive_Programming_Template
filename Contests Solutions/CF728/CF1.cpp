@@ -59,15 +59,34 @@ int fact(int n)
 	return res % MOD;
 }
 //////////////////////////////////////////////////////////////////////////////
-bool comp(pair<string, int> a, pair<string, int> b)
-{
-	if (a.second != b.second)
-		return a.second > b.second;
-	return a.first < b.first;
-}
+
 void solve()
 {
+	int n;
+	cin >> n;
+
+	if (n % 2 == 0)
+	{
+		int i = 2;
+		while (i <= n)
+		{
+			cout << i << " " << i - 1 << " ";
+			i += 2;
+		}
+	}
+	else
+	{
+		int i = 2;
+		while (i <= n - 3)
+		{
+			cout << i << " " << i - 1 << " ";
+			i += 2;
+		}
+		cout << n << " " << n - 2 << " " << n - 1;
+	}
+	cout << endl;
 }
+
 signed main()
 {
 	ios_base::sync_with_stdio(false);
@@ -77,8 +96,8 @@ signed main()
 	freopen("input.txt", "r", stdin);
 	freopen("output.txt", "w", stdout);
 #endif
-	int tc = 1;
-	//cin >> tc;
+	int tc;
+	cin >> tc;
 	while (tc--)
 	{
 		solve();
