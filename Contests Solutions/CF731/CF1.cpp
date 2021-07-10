@@ -75,6 +75,18 @@ bool isPrime(int n)
 
 void solve()
 {
+	int a1, b1, a2, b2, a3, b3;
+	cin >> a1 >> b1;
+	cin >> a3 >> b3;
+	if (a1 > a3)
+		swap(a1, a3);
+	if (b1 > b3)
+		swap(b1, b3);
+	cin >> a2 >> b2;
+	int ans = abs(a3 - a1) + abs(b3 - b1);
+	if ((a1 == a2 && a2 == a3 && b2 > b1 && b2 < b3) || (b1 == b2 && b2 == b3 && a2 > a1 && a2 < a3))
+		ans += 2;
+	cout << ans << endl;
 }
 signed main()
 {

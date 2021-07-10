@@ -75,6 +75,24 @@ bool isPrime(int n)
 
 void solve()
 {
+	int n, k;
+	cin >> n >> k;
+	vi lmin(n, INF - 1), rmin(n, INF - 1);
+	vi pos(k);
+	for (int &i : pos)
+		cin >> i;
+	for (int &i : pos)
+	{
+		cin >> lmin[i - 1];
+		rmin[i - 1] = lmin[i - 1];
+	}
+	for (int i = 1; i < n; i++)
+		lmin[i] = min(lmin[i - 1] + 1, lmin[i]);
+	for (int i = n - 2; i >= 0; i--)
+		rmin[i] = min(rmin[i + 1] + 1, rmin[i]);
+	for (int i = 0; i < n; i++)
+		cout << min(lmin[i], rmin[i]) << " ";
+	cout << endl;
 }
 signed main()
 {

@@ -58,7 +58,6 @@ int fact(int n)
 	}
 	return res % MOD;
 }
-
 bool isPrime(int n)
 {
 	if (n <= 1)

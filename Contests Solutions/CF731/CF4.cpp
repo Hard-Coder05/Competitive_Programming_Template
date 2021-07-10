@@ -75,6 +75,25 @@ bool isPrime(int n)
 
 void solve()
 {
+	int n;
+	cin >> n;
+	vi v(n);
+	for (int &i : v)
+		cin >> i;
+	vi ans;
+	ans.PB(0);
+	for (int i = 0; i < n - 1; i++)
+	{
+		int y_curr = 0, curr = v[i], next = v[i + 1];
+		for (int j = 0; j < 31; j++)
+			if ((curr & (1 << j)) && !(next & (1 << j)))
+				y_curr |= (1 << j);
+		ans.PB(y_curr);
+		v[i + 1] |= y_curr;
+	}
+	for (int &i : ans)
+		cout << i << " ";
+	cout << endl;
 }
 signed main()
 {

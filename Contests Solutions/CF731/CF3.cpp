@@ -75,6 +75,53 @@ bool isPrime(int n)
 
 void solve()
 {
+	int k, n, m;
+	cin >> k >> n >> m;
+	vi a(n), b(m);
+	for (int &i : a)
+		cin >> i;
+	for (int &i : b)
+		cin >> i;
+	vi ans;
+	int i = 0, j = 0;
+	while (i < n || j < m)
+	{
+		bool over = false;
+		while (i < n && a[i] == 0)
+		{
+			ans.PB(0);
+			k++;
+			i++;
+			over = true;
+		}
+		while (j < m && b[j] == 0)
+		{
+			ans.PB(0);
+			j++;
+			k++;
+			over = true;
+		}
+		while (i < n && a[i] != 0 && a[i] <= k)
+		{
+			ans.PB(a[i]);
+			i++;
+			over = true;
+		}
+		while (j < m && b[j] != 0 && b[j] <= k)
+		{
+			ans.PB(b[j]);
+			j++;
+			over = true;
+		}
+		if (!over)
+		{
+			cout << -1 << endl;
+			return;
+		}
+	}
+	for (int &i : ans)
+		cout << i << " ";
+	cout << endl;
 }
 signed main()
 {

@@ -75,6 +75,55 @@ bool isPrime(int n)
 
 void solve()
 {
+	string s;
+	cin >> s;
+	string a = s;
+	sort(a.begin(), a.end());
+	int n = s.length();
+	if (a[0] != 'a')
+	{
+		cout << "NO" << endl;
+		return;
+	}
+	bool answerCan = true;
+	for (int i = 0; i < n - 1; i++)
+		if (a[i + 1] - a[i] != 1)
+		{
+			answerCan = false;
+			break;
+		}
+	if (!answerCan)
+	{
+		cout << "NO" << endl;
+		return;
+	}
+	int i = 0;
+	for (; i < n; i++)
+		if (s[i] == 'a')
+			break;
+	for (int j = i - 1; j >= 0; j--)
+		if (s[j] - s[j + 1] < 0)
+		{
+			answerCan = false;
+			break;
+		}
+	if (!answerCan)
+	{
+		cout << "NO" << endl;
+		return;
+	}
+	for (int j = i + 1; j < n - 1; j++)
+		if (s[j + 1] - s[j] < 0)
+		{
+			answerCan = false;
+			break;
+		}
+	if (!answerCan)
+	{
+		cout << "NO" << endl;
+		return;
+	}
+	cout << "YES" << endl;
 }
 signed main()
 {
