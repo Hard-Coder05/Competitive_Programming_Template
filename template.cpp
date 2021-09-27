@@ -1,7 +1,7 @@
 /* 
 #############################################
-Author: Siddharth Mishra
-GitHub: https://github.com/Hard-Coder05
+Author: <Enter your name here>
+GitHub: <Enter your GitHub Profile link here>
 #############################################
 */
 #include <bits/stdc++.h>
